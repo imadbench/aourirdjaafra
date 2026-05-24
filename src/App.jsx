@@ -332,7 +332,7 @@ function App() {
                 <h1>{VILLE_DATA.title}</h1>
                 <p>{VILLE_DATA.heroDescription}</p>
                 <div className="hero-btns">
-                  <button className="cta-button">اكتشف تاريخنا</button>
+                  <Link to="/topic/history" className="cta-button">اكتشف تاريخنا</Link>
                   <div className="weather-widget glass-card">
                     <Cloud className="accent-icon" />
                     <span>أورير: {weather.temp}°C</span>
@@ -561,9 +561,9 @@ function App() {
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                   ></iframe>
                 </div>
-                <div className="gallery-item large-landscape" style={{ backgroundImage: `url(${heroImages[(heroSlide + 3) % heroImages.length]})` }}></div>
-                <div className="gallery-item" style={{ backgroundImage: `url(${heroImg5})` }}></div>
-                <div className="gallery-item" style={{ backgroundImage: `url(${heroImg3})` }}></div>
+                <div className="gallery-item uniform-item" style={{ backgroundImage: `url(${heroImages[(heroSlide + 3) % heroImages.length]})` }}></div>
+                <div className="gallery-item uniform-item" style={{ backgroundImage: `url(${heroImg5})` }}></div>
+                <div className="gallery-item uniform-item" style={{ backgroundImage: `url(${heroImg3})` }}></div>
               </div>
             </motion.section>
           </>
