@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary: #FFCC00; /* Logo Gold/Yellow */
+  --primary-light: #FFDB4D;
+  --secondary: #2D1E10; /* Logo Dark Brown */
+  --accent: #F39C12; /* Deep Gold */
+  --bg: #FFFDF9; /* Creamy White */
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --text: #1A0A00; /* Dark Brown/Black */
+  --text-light: #5d4037;
+  --white: #ffffff;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --glass: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(45, 30, 16, 0.1);
+  --shadow: 0 8px 32px 0 rgba(45, 30, 16, 0.1);
+}
+
+html.dark {
+  --primary: #FFCC00;
+  --secondary: #FFF3E0;
+  --accent: #F39C12;
+  --bg: #120e0a;
+  --card-bg: rgba(30, 25, 20, 0.85);
+  --text: #FDFBF7;
+  --text-light: #B8A89A;
+  --white: #1a1410;
+  --glass: rgba(20, 15, 10, 0.8);
+  --glass-border: rgba(255, 204, 0, 0.15);
+  --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+}
+
+html.dark .gradient-text {
+  background: linear-gradient(135deg, #FFD700, #F39C12);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cairo', 'Outfit', sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  direction: rtl; /* Arabic support */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: var(--transition);
+}
+
+.glass-card {
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  border-radius: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
