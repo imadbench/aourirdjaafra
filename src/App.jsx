@@ -5,7 +5,7 @@ import {
   MapPin, Clock, Cloud, Newspaper,
   Image as ImageIcon, Users, MessageSquare,
   Facebook, Instagram, Mail, ChevronRight, ChevronLeft, Play,
-  Home, Coffee, Heart, BookOpen, Camera, Zap, Leaf, Sun, Moon, ZoomIn
+  Home, Coffee, Heart, BookOpen, Camera, Zap, Leaf, Sun, Moon, ZoomIn, ExternalLink
 } from 'lucide-react';
 import { Routes, Route, Link, useParams } from 'react-router-dom';
 import { UI_TRANSLATIONS } from './translations';
@@ -35,6 +35,7 @@ import heroImg10 from './assets/images/5807933693287403219_121.jpg';
 import heroImg11 from './assets/images/5807933693287403221_120.jpg';
 import heroImg12 from './assets/images/5807933693287403282_121.jpg';
 import heroImg13 from './assets/images/5807933693287403286_120.jpg';
+import flagGif from './assets/images/flag.gif';
 
 const IconMap = { MapPin, Home, Coffee, Users, Leaf, Heart, BookOpen, Camera, Zap };
 const LangContext = createContext();
@@ -179,27 +180,25 @@ function WeatherSection() {
 
 /* ─── Martyrs Section ─── */
 const MARTYRS_LIST_1 = [
-  'بحرية أكلي', 'بودوخة مقران', 'بودوخة العياشي', 'بودوخة الطاهر', 'بودوخة معمر',
-  'بودوخة الرشيد', 'بودوخة الصالح', 'بودوخة سليمان', 'بوقجار محمد أمزيان',
-  'بوقجار محمد ارزقي', 'بن وجغيط بلقاسم', 'بن وجغيط مزيان', 'بن وجغيط أحمد',
-  'بن وجغيط البشير', 'بن وجغيط سالم', 'بن وجغيط ارزقي', 'بن وجغيط أكلي',
-  'بن بحطيط عبد الله', 'محواش العياشي', 'بن طاطة ارزقي', 'بن راعي الطاهر',
-  'بن نالي عبد المالك', 'بن نالي الطاهر', 'شعلال عيسى', 'بوقطاية الطيب',
-  'بوقطاية عيسى', 'بوقطاية السعيد', 'بوقطاية حميدي', 'بوقطاية ابراهيم',
-  'بوقطاية ارزقي', 'بوقطاية البشير', 'بوقطاية العياشي',
-  null, null, null, null, null,
+  "بحرية اكلي", "بودوخة مقران", "بودوخة لعياشي", "بودوخة الطاهر", "بودوخة معمر", 
+  "بودوخة الرشيد", "بودوخة صالح", "بودوخة سليمان", "بوقجار محمد امزيان", "بوقجار محمد ارزقي",
+  "بن وجغيط بلقاسم", "بن وجغيط مزيان", "بن وجغيط احمد", "بن وجغيط البشير", "بن وجغيط سالم", 
+  "بن وجغيط ارزقي", "بن وجغيط اكلي", "بن بجطيح عبد الله", "محواش لعياشي", "بن طاطة ارزقي",
+  "بن راعي طاهر", "بن تلي عبد المالك", "بن تلي طاهر", "شعلال عيسى", "بوڨطاية طيب",
+  "بوقطاية عيسى", "بوقطاية السعيد", "بوقطاية حميدي", "بوقطاية ابراهيم", "بوقطاية ارزقي",
+  "بوقطاية البشير", "بوقطاية هاشمي", "بوقطاية اسماعيل", "بسعي عبد الحميد", "بسعي الصديق", 
+  "شرنين الحسين", "شرنين ارزقي"
 ];
 
 const MARTYRS_LIST_2 = [
-  'بوقطاية اسماعيل', 'بسعي عبد الحميد', 'بسعي الصديق', 'شرنين حسين',
-  'شرنين ارزقي', 'شرنين حميمي', 'تشراحين الصالح', 'تشراحين حسن',
-  'تشراحين شريف', 'بن شادي رابح', 'بن شادي العربي', 'بن شادي ابراهيم',
-  'بن شرنين محمد', 'بن قدور محمد', 'صانع رابح .ف', 'صانع اسماعيل',
-  'بوتفوين محمد', 'بوتفوين جمعة', 'شعلال اسماعيل', 'بن مريم محمد ايدير',
-  'بن مريم رابح', 'بن مريم البشير', 'بن مريم الرشيد', 'سيسي حسن',
-  'بشاش ارزقي', 'صانع محمد لخضر', 'بوشوشان اسماعيل', 'شقار عبد الحميد',
-  'اوفليب كلثوم', 'تكرو مبالت ربيحة', 'بسعي حجيلة', 'بن وجغيط فطيمة',
-  null, null, null, null, null,
+  "شرنين حميمي", "تشراحين صالح", "تشراحين احسن", "تشراحين شريف", "بن شادي رابح", 
+  "بن شادي العربي", "بن شادي ابراهيم", "بن شرنين محمد امقران", "بن قدور محمد", "صانع رابح",
+  "صانع اسماعيل", "بوتقوين محمد", "بوتقوين جمعة", "شعلال اسماعيل", "بن مريم محمد ايدير", 
+  "بن مريم رابح", "بن مريم البشير", "بن مريم راشيد", "سيسي حسن", "بشاش ارزقي",
+  "صانع محمد لخضر", "بشوشان اسماعيل", "شقار عبد الحميد", "اقليب كلثوم", "تاكرومبالت زوليخة", 
+  "بسعي حجيلة", "بن وجغيط فطيمة", "شهيد مجهول", "شهيد مجهول", "شهيد مجهول", 
+  "شهيد مجهول", "شهيد مجهول", "شهيد مجهول", "شهيد مجهول", "شهيد مجهول", 
+  "شهيد مجهول", "شهيد مجهول"
 ];
 
 
@@ -266,6 +265,12 @@ function TopicPage() {
   const [bookSpread, setBookSpread] = useState(0);
   const [flipDir, setFlipDir] = useState(1);
   const topic = t.siteData.villageTopics?.find(tObj => tObj.id === id);
+  const [selectedMartyr, setSelectedMartyr] = useState(null);
+
+  const openSearchModal = (name) => {
+    if (!name) return;
+    setSelectedMartyr(name);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -308,7 +313,16 @@ function TopicPage() {
             </p>
 
             <div className="open-book-wrapper">
-              <h2 className="martyrs-book-title" style={{ fontFamily: "'Amiri', serif", color: '#d5c8a0', fontSize: '2.5rem', marginBottom: '1.5rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>كتاب مجاهدينا</h2>
+              <h2 className="martyrs-book-title" style={{ fontFamily: "'Amiri', serif", color: '#d5c8a0', fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', marginBottom: '1.5rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'clamp(0.4rem, 2vw, 0.8rem)', flexWrap: 'nowrap' }}>
+                <img src={flagGif} alt="العلم الجزائري" className="flag-waving" style={{ height: 'clamp(1.8rem, 6vw, 3.5rem)', flexShrink: 0, objectFit: 'contain', filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.5))' }} />
+                <span>كتاب</span>
+                <span style={{ color: '#e8c96b' }}>مجاهدينا</span>
+                <img src={flagGif} alt="العلم الجزائري" className="flag-waving" style={{ height: 'clamp(1.8rem, 6vw, 3.5rem)', flexShrink: 0, objectFit: 'contain', filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.5))' }} />
+              </h2>
+
+              <p style={{ textAlign: 'center', color: '#c9a84c', fontSize: '0.9rem', marginBottom: '1rem', fontWeight: 'bold', animation: 'pulse 2s infinite' }}>
+                💡 اضغط على الشهيد للبحث عنه
+              </p>
 
               <div className="open-book">
                 <div className="book-spine"></div>
@@ -332,7 +346,9 @@ function TopicPage() {
                             className={`martyrs-item book-martyr-item ${name === null ? 'martyrs-unknown' : ''}`}
                             initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 + i * 0.05 }}>
                             <span className="book-bullet">🌿</span>
-                            <span className="book-name">{name === null ? t.ui.martyrsUnknown : name}</span>
+                            <span className="book-name search-link" onClick={() => openSearchModal(name)}>
+                              {name === null ? t.ui.martyrsUnknown : name}
+                            </span>
                             {name !== null && <span className="martyrs-rip relative-rip">رحمه الله</span>}
                           </motion.li>
                         ))}
@@ -349,10 +365,26 @@ function TopicPage() {
                             className={`martyrs-item book-martyr-item ${name === null ? 'martyrs-unknown' : ''}`}
                             initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 + i * 0.05 }}>
                             <span className="book-bullet">🌿</span>
-                            <span className="book-name">{name === null ? t.ui.martyrsUnknown : name}</span>
+                            <span className="book-name search-link" onClick={() => openSearchModal(name)}>
+                              {name === null ? t.ui.martyrsUnknown : name}
+                            </span>
                             {name !== null && <span className="martyrs-rip relative-rip">رحمه الله</span>}
                           </motion.li>
                         ))}
+                        
+                        {(bookSpread === Math.ceil([...MARTYRS_LIST_1, ...MARTYRS_LIST_2].length / 10) - 1) && (
+                          <motion.div 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            style={{ marginTop: '2rem', textAlign: 'center', borderTop: '1px solid rgba(212, 175, 55, 0.2)', paddingTop: '1.5rem' }}>
+                            <p style={{ color: '#e8c96b', fontFamily: "'Amiri', serif", fontSize: '0.95rem', marginBottom: '0.8rem' }}>
+                              "وَلَا تَحْسَبَنَّ الَّذِينَ قُتِلُوا فِي سَبِيلِ اللَّهِ أَمْوَاتًا ۚ بَلْ أَحْيَاءٌ عِندَ رَبِّهِمْ يُرْزَقُونَ"
+                            </p>
+                            <p style={{ color: '#e8c96b', fontFamily: "'Amiri', serif", fontSize: '1.1rem', fontStyle: 'italic', margin: 0 }}>
+                              رحم الله شهداء الوطن.. المجد والخلود لشهدائنا الأبرار
+                            </p>
+                          </motion.div>
+                        )}
                       </ul>
                       <div className="book-page-footer">{bookSpread * 2 + 2}</div>
                     </div>
@@ -382,12 +414,74 @@ function TopicPage() {
                   <ChevronLeft size={24} />
                 </button>
               </div>
+
+              <div style={{ textAlign: 'center', marginTop: '3.5rem', color: '#e8c96b', fontFamily: "'Amiri', serif", textShadow: '0 2px 8px rgba(0,0,0,0.5)', opacity: 0.9 }}>
+                <p style={{ fontSize: 'clamp(1.1rem, 3.5vw, 1.4rem)', marginBottom: '1rem' }}>
+                  "وَلَا تَحْسَبَنَّ الَّذِينَ قُتِلُوا فِي سَبِيلِ اللَّهِ أَمْوَاتًا ۚ بَلْ أَحْيَاءٌ عِندَ رَبِّهِمْ يُرْزَقُونَ"
+                </p>
+                <p style={{ fontSize: 'clamp(1.2rem, 4vw, 1.6rem)', fontStyle: 'italic' }}>
+                  رحم الله شهداء الوطن.. المجد والخلود لشهدائنا الأبرار
+                </p>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Professional Research Modal */}
+        <AnimatePresence>
+          {selectedMartyr && (
+            <motion.div 
+              className="research-modal-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedMartyr(null)}
+            >
+              <motion.div 
+                className="research-modal-card glass-card"
+                initial={{ scale: 0.9, y: 20, opacity: 0 }}
+                animate={{ scale: 1, y: 0, opacity: 1 }}
+                exit={{ scale: 0.9, y: 20, opacity: 0 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="simple-search-header">
+                  <div className="header-nav-group">
+                    <button className="simple-back-btn" onClick={() => setSelectedMartyr(null)}>
+                      <ChevronRight size={20} /> رجوع
+                    </button>
+                  </div>
+                  
+                  <button className="simple-close-btn" onClick={() => setSelectedMartyr(null)} aria-label="إغلاق">
+                    إنهاء <X size={20} />
+                  </button>
+                </div>
+
+                <div className="research-modal-body simple-view">
+                  <div className="simple-results-container">
+                    <iframe 
+                      src={`https://www.google.com/search?q=${encodeURIComponent(selectedMartyr + ' اهم معلومات هذا الشهيد')}&igu=1&hl=ar`}
+                      title="Google Search"
+                      className="simple-iframe"
+                      onLoad={(e) => {
+                        const loader = e.target.parentElement.querySelector('.simple-loader-overlay');
+                        if (loader) loader.style.display = 'none';
+                      }}
+                    ></iframe>
+
+                    <div className="simple-loader-overlay">
+                      <div className="simple-spinner"></div>
+                      <p>جاري تحميل نتائج جوجل...</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     );
   }
+
 
   return (
     <div className="topic-page fade-in">

@@ -61,12 +61,12 @@ export const UI_TRANSLATIONS = {
       rights: '© 2026 جميع الحقوق محفوظة لقرية أورير جعافرة',
       facebookDesc: 'أخبار اورير جعافرة',
       martyrsTitle: 'شهداء القرية',
-      martyrsDesc: 'قريتنا أورير جعافرة ضحّت بأكثر من 85 شهيداً وشهيدة في سبيل الوطن — رحمهم الله وأسكنهم فسيح جنانه',
+      martyrsDesc: 'قريتنا أورير جعافرة ضحّت بأكثر من 74 شهيداً وشهيدة في سبيل الوطن — رحمهم الله وأسكنهم فسيح جنانه',
       martyrsListTitle1: 'القائمة الأولى',
       martyrsListTitle2: 'القائمة الثانية',
       martyrsUnknown: 'مجهول',
       martyrsHighlighted: 'شهيد مميّز',
-      martyrsTotal: 'أكثر من 85 شهيداً وشهيدة',
+      martyrsTotal: 'أكثر من 74 شهيداً وشهيدة',
       martyrsSubtitle: 'في سبيل الجزائر الحرة'
     }
   },
@@ -129,12 +129,12 @@ export const UI_TRANSLATIONS = {
       rights: '© 2026 Tous droits réservés - Aourir Djaafra',
       facebookDesc: 'Actualités Aourir Djaafra',
       martyrsTitle: 'Les Martyrs du Village',
-      martyrsDesc: 'Notre village Aourir Djaafra a sacrifié plus de 85 martyrs pour la patrie — Que Dieu leur accorde Sa miséricorde',
+      martyrsDesc: 'Notre village Aourir Djaafra a sacrifié plus de 74 martyrs pour la patrie — Que Dieu leur accorde Sa miséricorde',
       martyrsListTitle1: 'Première liste',
       martyrsListTitle2: 'Deuxième liste',
       martyrsUnknown: 'Inconnu(e)',
       martyrsHighlighted: 'Martyr mis en évidence',
-      martyrsTotal: 'Plus de 85 martyrs',
+      martyrsTotal: 'Plus de 74 martyrs',
       martyrsSubtitle: 'Pour l\'Algérie libre'
     }
   }

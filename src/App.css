@@ -2492,6 +2492,21 @@
   color: #2c1e16;
 }
 
+.book-name.search-link {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.book-name.search-link:hover {
+  color: #d4af37 !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transform: translateY(-2px);
+}
+
+
 .relative-rip {
   margin-right: auto;
   font-size: 0.75rem;
@@ -2614,4 +2629,330 @@
     display: none;
     /* Hide RIP on very small screens to save space */
   }
+}
+
+/* ─── Flag Waving Effect ─── */
+.flag-waving {
+  animation: flagFloat 2.5s ease-in-out infinite;
+  max-width: 80px;
+  width: auto;
+}
+
+@keyframes flagFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(1deg); }
+  75% { transform: translateY(2px) rotate(-1deg); }
+}
+
+/* ─── Martyrs Title Responsive ─── */
+.martyrs-book-title {
+  padding: 0 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .flag-waving {
+    max-width: 45px;
+  }
+  
+  .martyrs-book-title {
+    gap: 0.3rem !important;
+    font-size: clamp(1.2rem, 4.5vw, 1.8rem) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .flag-waving {
+    max-width: 35px;
+  }
+}
+
+/* ─── Professional Research Modal ─── */
+.research-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 27, 15, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.research-modal-card {
+  width: 100%;
+  max-width: 1100px;
+  height: 90vh;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+}
+
+.professional-header {
+  height: 64px;
+  background: rgba(13, 27, 15, 0.98);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 20;
+}
+
+.browser-address-bar-mockup {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 500px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+.address-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.research-close-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.research-close-btn:hover {
+  background: #e74c3c;
+  border-color: #e74c3c;
+  transform: rotate(90deg);
+}
+
+
+.research-modal-body {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  flex: 1;
+  overflow: hidden;
+}
+
+.research-sidebar {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.15);
+  border-right: 1px solid rgba(212, 175, 55, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+
+.research-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.research-info-label {
+  font-size: 0.75rem;
+  color: #c9a84c;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.research-info-value {
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.research-cta {
+  margin-top: auto;
+  padding: 1.5rem;
+  background: rgba(201, 168, 76, 0.1);
+  border-radius: 16px;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  text-align: center;
+}
+
+.research-cta p {
+  font-size: 0.85rem;
+  color: rgba(232, 220, 200, 0.8);
+  margin-bottom: 1rem;
+}
+
+.research-external-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #e8c96b;
+  color: #0d1b0f;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.research-external-btn:hover {
+  background: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.simple-search-header {
+  height: 70px;
+  background: #fff;
+  border-bottom: 2px solid #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 100;
+  border-radius: 20px 20px 0 0;
+}
+
+.header-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.simple-back-btn {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  color: #c9a84c;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.simple-back-btn:hover {
+  background: #0d1b0f;
+  color: #fff;
+  border-color: #0d1b0f;
+}
+
+.simple-search-title {
+  color: #202124;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.simple-close-btn {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  color: #212529;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.simple-close-btn:hover {
+  background: #e9ecef;
+  border-color: #ced4da;
+}
+
+.simple-view {
+  background: #fff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.simple-results-container {
+  flex: 1;
+  position: relative;
+  height: 100%;
+}
+
+.simple-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #fff;
+}
+
+.simple-loader-overlay {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  color: #5f6368;
+  gap: 1rem;
+}
+
+.simple-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4285f4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.research-modal-card {
+  width: 95vw;
+  height: 92vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+
+.research-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
 }
