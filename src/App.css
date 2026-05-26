@@ -2639,9 +2639,19 @@
 }
 
 @keyframes flagFloat {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  25% { transform: translateY(-3px) rotate(1deg); }
-  75% { transform: translateY(2px) rotate(-1deg); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-3px) rotate(1deg);
+  }
+
+  75% {
+    transform: translateY(2px) rotate(-1deg);
+  }
 }
 
 /* ─── Martyrs Title Responsive ─── */
@@ -2653,7 +2663,7 @@
   .flag-waving {
     max-width: 45px;
   }
-  
+
   .martyrs-book-title {
     gap: 0.3rem !important;
     font-size: clamp(1.2rem, 4.5vw, 1.8rem) !important;

@@ -35,6 +35,10 @@ import heroImg10 from './assets/images/5807933693287403219_121.jpg';
 import heroImg11 from './assets/images/5807933693287403221_120.jpg';
 import heroImg12 from './assets/images/5807933693287403282_121.jpg';
 import heroImg13 from './assets/images/5807933693287403286_120.jpg';
+import heroImg14 from './assets/images/5814444511520821150_121.jpg';
+import heroImg15 from './assets/images/5814444511520821152_121.jpg';
+import heroImg16 from './assets/images/5814444511520821153_121.jpg';
+import heroImg17 from './assets/images/5814444511520821156_121.jpg';
 import flagGif from './assets/images/flag.gif';
 
 const IconMap = { MapPin, Home, Coffee, Users, Leaf, Heart, BookOpen, Camera, Zap };
@@ -180,24 +184,24 @@ function WeatherSection() {
 
 /* ─── Martyrs Section ─── */
 const MARTYRS_LIST_1 = [
-  "بحرية اكلي", "بودوخة مقران", "بودوخة لعياشي", "بودوخة الطاهر", "بودوخة معمر", 
+  "بحرية اكلي", "بودوخة مقران", "بودوخة لعياشي", "بودوخة الطاهر", "بودوخة معمر",
   "بودوخة الرشيد", "بودوخة صالح", "بودوخة سليمان", "بوقجار محمد امزيان", "بوقجار محمد ارزقي",
-  "بن وجغيط بلقاسم", "بن وجغيط مزيان", "بن وجغيط احمد", "بن وجغيط البشير", "بن وجغيط سالم", 
+  "بن وجغيط بلقاسم", "بن وجغيط مزيان", "بن وجغيط احمد", "بن وجغيط البشير", "بن وجغيط سالم",
   "بن وجغيط ارزقي", "بن وجغيط اكلي", "بن بجطيح عبد الله", "محواش لعياشي", "بن طاطة ارزقي",
   "بن راعي طاهر", "بن تلي عبد المالك", "بن تلي طاهر", "شعلال عيسى", "بوڨطاية طيب",
   "بوقطاية عيسى", "بوقطاية السعيد", "بوقطاية حميدي", "بوقطاية ابراهيم", "بوقطاية ارزقي",
-  "بوقطاية البشير", "بوقطاية هاشمي", "بوقطاية اسماعيل", "بسعي عبد الحميد", "بسعي الصديق", 
+  "بوقطاية البشير", "بوقطاية هاشمي", "بوقطاية اسماعيل", "بسعي عبد الحميد", "بسعي الصديق",
   "شرنين الحسين", "شرنين ارزقي"
 ];
 
 const MARTYRS_LIST_2 = [
-  "شرنين حميمي", "تشراحين صالح", "تشراحين احسن", "تشراحين شريف", "بن شادي رابح", 
+  "شرنين حميمي", "تشراحين صالح", "تشراحين احسن", "تشراحين شريف", "بن شادي رابح",
   "بن شادي العربي", "بن شادي ابراهيم", "بن شرنين محمد امقران", "بن قدور محمد", "صانع رابح",
-  "صانع اسماعيل", "بوتقوين محمد", "بوتقوين جمعة", "شعلال اسماعيل", "بن مريم محمد ايدير", 
+  "صانع اسماعيل", "بوتقوين محمد", "بوتقوين جمعة", "شعلال اسماعيل", "بن مريم محمد ايدير",
   "بن مريم رابح", "بن مريم البشير", "بن مريم راشيد", "سيسي حسن", "بشاش ارزقي",
-  "صانع محمد لخضر", "بشوشان اسماعيل", "شقار عبد الحميد", "اقليب كلثوم", "تاكرومبالت زوليخة", 
-  "بسعي حجيلة", "بن وجغيط فطيمة", "شهيد مجهول", "شهيد مجهول", "شهيد مجهول", 
-  "شهيد مجهول", "شهيد مجهول", "شهيد مجهول", "شهيد مجهول", "شهيد مجهول", 
+  "صانع محمد لخضر", "بشوشان اسماعيل", "شقار عبد الحميد", "اقليب كلثوم", "تاكرومبالت زوليخة",
+  "بسعي حجيلة", "بن وجغيط فطيمة", "شهيد مجهول", "شهيد مجهول", "شهيد مجهول",
+  "شهيد مجهول", "شهيد مجهول", "شهيد مجهول", "شهيد مجهول", "شهيد مجهول",
   "شهيد مجهول", "شهيد مجهول"
 ];
 
@@ -371,9 +375,9 @@ function TopicPage() {
                             {name !== null && <span className="martyrs-rip relative-rip">رحمه الله</span>}
                           </motion.li>
                         ))}
-                        
+
                         {(bookSpread === Math.ceil([...MARTYRS_LIST_1, ...MARTYRS_LIST_2].length / 10) - 1) && (
-                          <motion.div 
+                          <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             style={{ marginTop: '2rem', textAlign: 'center', borderTop: '1px solid rgba(212, 175, 55, 0.2)', paddingTop: '1.5rem' }}>
@@ -430,14 +434,14 @@ function TopicPage() {
         {/* Professional Research Modal */}
         <AnimatePresence>
           {selectedMartyr && (
-            <motion.div 
+            <motion.div
               className="research-modal-overlay"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedMartyr(null)}
             >
-              <motion.div 
+              <motion.div
                 className="research-modal-card glass-card"
                 initial={{ scale: 0.9, y: 20, opacity: 0 }}
                 animate={{ scale: 1, y: 0, opacity: 1 }}
@@ -450,7 +454,7 @@ function TopicPage() {
                       <ChevronRight size={20} /> رجوع
                     </button>
                   </div>
-                  
+
                   <button className="simple-close-btn" onClick={() => setSelectedMartyr(null)} aria-label="إغلاق">
                     إنهاء <X size={20} />
                   </button>
@@ -458,7 +462,7 @@ function TopicPage() {
 
                 <div className="research-modal-body simple-view">
                   <div className="simple-results-container">
-                    <iframe 
+                    <iframe
                       src={`https://www.google.com/search?q=${encodeURIComponent(selectedMartyr + ' اهم معلومات هذا الشهيد')}&igu=1&hl=ar`}
                       title="Google Search"
                       className="simple-iframe"
@@ -522,14 +526,15 @@ function AppContent() {
 
   const [weather, setWeather] = useState({ temp: 18, condition: 'صافي' });
   const [heroSlide, setHeroSlide] = useState(0);
+  const [gallerySlide, setGallerySlide] = useState(5);
   const [videoSlide, setVideoSlide] = useState(0);
-  const heroImages = [heroImg1, heroImg2, heroImg3, heroImg4, heroImg5, heroImg6, heroImg7, heroImg8, heroImg9, heroImg10, heroImg11, heroImg12, heroImg13];
+  const heroImages = [heroImg1, heroImg2, heroImg3, heroImg4, heroImg5, heroImg6, heroImg7, heroImg8, heroImg9, heroImg10, heroImg11, heroImg12, heroImg13, heroImg14, heroImg15, heroImg16, heroImg17];
   const fbFeedRef = useRef(null);
 
   // Lightbox state
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
-  const galleryImages = [heroImg1, heroImg2, heroImg4, heroImg5, heroImg6, heroImg7, heroImg8, heroImg9, heroImg3, heroImg10, heroImg11, heroImg12, heroImg13];
+  const galleryImages = [heroImg1, heroImg2, heroImg4, heroImg5, heroImg6, heroImg7, heroImg8, heroImg9, heroImg3, heroImg10, heroImg11, heroImg12, heroImg13, heroImg14, heroImg15, heroImg16, heroImg17];
   const openLightbox = (idx) => { setLightboxIndex(idx); setLightboxOpen(true); };
 
   useEffect(() => {
@@ -865,25 +870,58 @@ function AppContent() {
                     <ChevronLeft size={22} />
                   </button>
                 </div>
-                {/* Zoomable image items */}
-                {[
-                  heroImages[(heroSlide + 3) % heroImages.length],
-                  heroImg5,
-                  heroImg3
-                ].map((img, idx) => (
-                  <div
-                    key={idx}
-                    className="gallery-item uniform-item gallery-zoomable"
-                    style={{ backgroundImage: `url(${img})` }}
-                    onClick={() => openLightbox(galleryImages.indexOf(img) >= 0 ? galleryImages.indexOf(img) : idx)}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => e.key === 'Enter' && openLightbox(galleryImages.indexOf(img) >= 0 ? galleryImages.indexOf(img) : idx)}
-                    aria-label={`${t.ui.galleryTitle} ${idx + 1}`}
+                {/* First Gallery Image (Automatic - follows hero) */}
+                <div
+                  className="gallery-item uniform-item gallery-zoomable"
+                  style={{ backgroundImage: `url(${heroImages[(heroSlide + 3) % heroImages.length]})` }}
+                  onClick={() => openLightbox(galleryImages.indexOf(heroImages[(heroSlide + 3) % heroImages.length]))}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === 'Enter' && openLightbox(galleryImages.indexOf(heroImages[(heroSlide + 3) % heroImages.length]))}
+                  aria-label={`${t.ui.galleryTitle} 1`}
+                >
+                  <div className="gallery-zoom-hint"><ZoomIn size={22} /></div>
+                </div>
+
+                {/* Second Gallery Image (Manual - with Arrows) - Located under the first row/video */}
+                <div
+                  className="gallery-item uniform-item gallery-zoomable"
+                  style={{ backgroundImage: `url(${heroImages[gallerySlide % heroImages.length]})` }}
+                  onClick={() => openLightbox(galleryImages.indexOf(heroImages[gallerySlide % heroImages.length]))}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === 'Enter' && openLightbox(galleryImages.indexOf(heroImages[gallerySlide % heroImages.length]))}
+                  aria-label={`${t.ui.galleryTitle} 2`}
+                >
+                  <button
+                    className="video-nav video-nav-right"
+                    onClick={(e) => { e.stopPropagation(); setGallerySlide(p => (p - 1 + heroImages.length) % heroImages.length); }}
+                    aria-label="الصورة السابقة"
                   >
-                    <div className="gallery-zoom-hint"><ZoomIn size={22} /></div>
-                  </div>
-                ))}
+                    <ChevronRight size={22} />
+                  </button>
+                  <button
+                    className="video-nav video-nav-left"
+                    onClick={(e) => { e.stopPropagation(); setGallerySlide(p => (p + 1) % heroImages.length); }}
+                    aria-label="الصورة التالية"
+                  >
+                    <ChevronLeft size={22} />
+                  </button>
+                  <div className="gallery-zoom-hint"><ZoomIn size={22} /></div>
+                </div>
+
+                {/* Third image (Static) - The last one */}
+                <div
+                  className="gallery-item uniform-item gallery-zoomable"
+                  style={{ backgroundImage: `url(${heroImg17})` }}
+                  onClick={() => openLightbox(galleryImages.indexOf(heroImg17))}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === 'Enter' && openLightbox(galleryImages.indexOf(heroImg17))}
+                  aria-label={`${t.ui.galleryTitle} 3`}
+                >
+                  <div className="gallery-zoom-hint"><ZoomIn size={22} /></div>
+                </div>
               </div>
             </motion.section>
           </>
