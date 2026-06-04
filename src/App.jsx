@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, createContext, useContext } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
 import {
   Menu, X, Phone, Globe, ShoppingBag,
   MapPin, Clock, Cloud, Newspaper,
@@ -20,6 +20,91 @@ const BookPage = React.forwardRef((props, ref) => {
     </div>
   );
 });
+
+const AnimatedCounter = ({ value, duration = 2.5 }) => {
+  const count = useMotionValue(0);
+  const [display, setDisplay] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.5 });
+  const prevValue = useRef(0);
+
+  useEffect(() => {
+    if (isInView) {
+      const numericValue = parseInt(String(value).replace(/,/g, '').replace(/\./g, '')) || 0;
+      const controls = animate(count, numericValue, {
+        duration: duration,
+        ease: "easeOut",
+        onUpdate: (latest) => setDisplay(Math.round(latest))
+      });
+      prevValue.current = numericValue;
+      return () => controls.stop();
+    }
+  }, [isInView, value, duration, count]);
+
+  return <strong ref={ref}>{display.toLocaleString()}+</strong>;
+};
+
+const useFollowerCount = (fbUrl) => {
+  // Start with the real current number provided by the user
+  const [followerCount, setFollowerCount] = useState("28,905");
+  const [talkingAbout, setTalkingAbout] = useState("1,625");
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        // Fetching the main page which usually has meta tags with stats
+        const targetUrl = "https://www.facebook.com/84Aourir";
+        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}&_=${Date.now()}`;
+        
+        const res = await fetch(proxyUrl);
+        const data = await res.json();
+        const html = data.contents;
+        
+        if (!html) return;
+
+        // Strategy 1: Look for og:description tag (very reliable for stats)
+        // Format: "... 28,905 likes · 31,000 talking about this."
+        const ogMatch = html.match(/<meta property="og:description" content="([^"]+)"/i);
+        if (ogMatch) {
+          const desc = ogMatch[1];
+          const countMatch = desc.match(/([\d,\.]+)\s*(?:likes|متابع|أعجبهم|like|followers)/i);
+          if (countMatch && countMatch[1]) {
+            setFollowerCount(countMatch[1]);
+            return;
+          }
+        }
+
+        // Strategy 2: Look for JSON follower_count or subscriber_count
+        const jsonMatch = html.match(/"(?:follower_count|subscriber_count)":(\d+)/);
+        if (jsonMatch && jsonMatch[1]) {
+           setFollowerCount(parseInt(jsonMatch[1]).toLocaleString());
+           return;
+        }
+
+        // Strategy 3: Broad text search near keywords
+        const followRegex = /([\d,\. \u0660-\u0669]+)\s*(?:followers|متابع|abonnés|أبوني)/i;
+        const match = html.match(followRegex);
+        if (match && match[1]) {
+          let cleanVal = match[1].trim()
+            .replace(/[\u0660-\u0669]/g, d => String.fromCharCode(d.charCodeAt(0) - 0x0660 + 0x30))
+            .replace(/[^0-9]/g, '');
+          
+          if (cleanVal && parseInt(cleanVal) > 1000) {
+            setFollowerCount(parseInt(cleanVal).toLocaleString());
+          }
+        }
+      } catch (e) {
+        console.error("Critical: Failed to fetch live FB stats", e);
+      }
+    };
+
+    fetchStats();
+    const interval = setInterval(fetchStats, 300000); 
+    return () => clearInterval(interval);
+  }, [fbUrl]);
+
+  return { followerCount, talkingAbout };
+};
 import './App.css';
 import logoImg from './assets/images/logo.jpg';
 import heroImg1 from './assets/images/5807817218069303271_121.jpg';
@@ -530,6 +615,7 @@ function AppContent() {
   const [videoSlide, setVideoSlide] = useState(0);
   const heroImages = [heroImg1, heroImg2, heroImg3, heroImg4, heroImg5, heroImg6, heroImg7, heroImg8, heroImg9, heroImg10, heroImg11, heroImg12, heroImg13, heroImg14, heroImg15, heroImg16, heroImg17];
   const fbFeedRef = useRef(null);
+  const { followerCount, talkingAbout } = useFollowerCount("https://www.facebook.com/84Aourir");
 
   // Lightbox state
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -746,11 +832,11 @@ function AppContent() {
                       <div className="news-footer-stats">
                         <div className="news-stat-item">
                           <Users size={18} />
-                          <span><strong>28,783+</strong> {t.ui.followers}</span>
+                          <span><AnimatedCounter value={followerCount} /> {t.ui.followers}</span>
                         </div>
                         <div className="news-stat-item">
                           <MessageSquare size={18} />
-                          <span><strong>1,625+</strong> {t.ui.talking}</span>
+                          <span><AnimatedCounter value={talkingAbout} /> {t.ui.talking}</span>
                         </div>
                         <div className="news-stat-item">
                           <Newspaper size={18} />
