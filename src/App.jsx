@@ -8,6 +8,7 @@ import {
   Home, Coffee, Heart, BookOpen, Camera, Zap, Leaf, Sun, Moon, ZoomIn, ExternalLink
 } from 'lucide-react';
 import { Routes, Route, Link, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { UI_TRANSLATIONS } from './translations';
 
 
@@ -367,15 +368,27 @@ function TopicPage() {
 
   if (!topic) return (
     <div className="container" style={{ padding: '200px 0', textAlign: 'center' }}>
+      <Helmet>
+        <title>{t.ui.topicNotFound} | أخبار أورير جعافرة</title>
+      </Helmet>
       <h2>{t.ui.topicNotFound}</h2>
       <Link to="/" className="cta-button">{t.ui.backHome}</Link>
     </div>
   );
 
+  const pageTitle = `${topic.title} | أخبار أورير جعافرة`;
+  const pageDesc = topic.content ? topic.content.substring(0, 160) : "";
+
   /* ── Special Martyrs Page ── */
   if (id === 'martyrs') {
     return (
       <div className="topic-page fade-in martyrs-topic-page">
+        <Helmet>
+          <title>{pageTitle}</title>
+          <meta name="description" content={t.ui.martyrsDesc?.substring(0, 160) || pageDesc} />
+          <meta property="og:title" content={pageTitle} />
+          <meta property="og:description" content={t.ui.martyrsDesc?.substring(0, 160) || pageDesc} />
+        </Helmet>
         <div className="topic-hero martyrs-topic-hero">
           <div className="container">
             <Link to="/" className="back-link">
@@ -574,6 +587,12 @@ function TopicPage() {
 
   return (
     <div className="topic-page fade-in">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+      </Helmet>
       <div className="topic-hero">
         <div className="container">
           <Link to="/" className="back-link">
@@ -677,6 +696,13 @@ function AppContent() {
 
   return (
     <div className={`app ${lang === 'fr' ? 'ltr-mode' : 'rtl-mode'}`} dir={t.dir}>
+      <Helmet>
+        <html lang={lang === 'ar' ? 'ar' : 'fr'} dir={t.dir} />
+        <title>{VILLE_DATA.title} | أخبار أورير جعافرة</title>
+        <meta name="description" content={VILLE_DATA.heroDescription} />
+        <meta property="og:title" content={VILLE_DATA.title} />
+        <meta property="og:description" content={VILLE_DATA.heroDescription} />
+      </Helmet>
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container nav-container">
           <div className="logo">
